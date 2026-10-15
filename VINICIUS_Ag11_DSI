@@ -1,0 +1,34 @@
+from colorama import Fore, Style, init
+
+
+
+
+# Definição dos dados do reservatório utilizando listas de dicionários
+# para associar claramente cada nível, sua situação e a cor correspondente.
+niveis_reservatorio = [
+    {"nivel": "Nível 1", "situacao": "Muito baixo (crítico)", "cor": Fore.RED},
+    {"nivel": "Nível 2", "situacao": "Baixo", "cor": Fore.YELLOW},
+    {"nivel": "Nível 3", "situacao": "Médio", "cor": Fore.GREEN},
+    {"nivel": "Nível 4", "situacao": "Alto", "cor": Fore.CYAN},
+    {"nivel": "Nível 5", "situacao": "Muito alto (alerta)", "cor": Fore.BLUE},
+]
+
+
+def exibir_alerta(nivel, situacao, cor):
+    """Função responsável por exibir a situação do reservatório com a cor correspondente
+
+    e garantir o retorno ao estilo padrão do terminal.
+    """
+    print(f"{cor}{nivel}: {situacao}{Style.RESET_ALL}")
+
+
+def simular_monitoramento():
+    print("--- SIMULAÇÃO DE MONITORAMENTO DO RESERVATÓRIO ---\n")
+
+    # Percorre cada nível cadastrado na lista para exibir o alerta correspondente
+    for item in niveis_reservatorio:
+        exibir_alerta(item["nivel"], item["situacao"], item["cor"])
+
+
+if __name__ == "__main__":
+    simular_monitoramento()
